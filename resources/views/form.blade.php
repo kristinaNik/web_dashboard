@@ -1,4 +1,5 @@
 <form>
+    <h2>Shkolo</h2>
     <div class="form-group">
         <label for="title">Title</label>
         <input type="title" class="form-control" id="title">
@@ -18,3 +19,5 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<script src="{{asset('js/get_colors.js')}}"></script>
