@@ -1,0 +1,46 @@
+.board__main{
+    width: 100%;
+}
+
+
+
+.board___turn {
+    text-align: center;
+    margin: 10px 0 10px;
+    height: 54px;
+}
+
+
+.board__container {
+    width: 40%;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.board__cell {
+    width: calc(85% / 3);
+    display: inline-block;
+    font-size: 40px;
+    text-align: center;
+    border: 2px solid #000;
+    padding: 20px;
+    vertical-align: top;
+    font-family: "Permanent Marker";
+}
+.add_link {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Permanent Marker";
+}
+
+@media only screen and (max-width: 767px) {
+    .board__cell {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .replay-btn {
+        width: 50%;
+    }
+}
