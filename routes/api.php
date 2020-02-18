@@ -17,5 +17,6 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 Route::get('/colors', 'WebDashboardController@getColors');
-Route::post('/configurations', 'WebDashboardController@addConfigurations');
-Route::put('/edit-configurations/{id}','WebDashboardController@updateConfiguration');
+//Route::post('/configurations', 'WebDashboardController@addConfigurations');
+//Route::put('/edit-configurations/{id}','WebDashboardController@updateConfiguration');
+Route::resource('configurations', 'WebDashboardController');

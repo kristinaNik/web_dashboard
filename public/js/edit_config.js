@@ -15,7 +15,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: 'PUT',
-                url: "api/edit-configurations/" + id,
+                url: "api/configurations/" + id,
                 data: {
                     title: title,
                     link: link,

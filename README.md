@@ -15,7 +15,8 @@ Implement a customizable web dashboard.
 
 - **run composer install**
 - **initialize env from env.example**
-- **php artisan migrate**
+- **run php artisan migrate**
+- **run php artisan db:seed**
 - **if using Docker, create container with image webdevops/php-apache:7.2, or in localhost run php artisan serve to start project**
 
 ## License

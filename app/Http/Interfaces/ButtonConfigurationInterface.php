@@ -8,8 +8,8 @@ interface ButtonConfigurationInterface
 {
     public function store($data);
 
-//    public function edit($data, $id);
-//
-//    public function delete($data, $id);
+    public function update($data, $id);
+
+    public function destroy($id);
 
 }

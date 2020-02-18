@@ -32,7 +32,7 @@ class WebDashboardController extends Controller
      * @return ButtonConfigResource
      * @throws \Exception
      */
-    public function addConfigurations(Request $request, ButtonConfigurationRepository $buttonConfigurationRepository)
+    public function store(Request $request, ButtonConfigurationRepository $buttonConfigurationRepository)
     {
         try {
             $config = $buttonConfigurationRepository->store($request);
@@ -43,7 +43,7 @@ class WebDashboardController extends Controller
 
     }
 
-    public function updateConfiguration(Request $request, $id, ButtonConfigurationRepository $buttonConfigurationRepository)
+    public function update(Request $request, $id, ButtonConfigurationRepository $buttonConfigurationRepository)
     {
         try {
             $config = $buttonConfigurationRepository->update($request,$id);
