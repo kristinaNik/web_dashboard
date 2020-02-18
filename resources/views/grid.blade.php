@@ -9,33 +9,33 @@
 
         <div class="board__container">
             <div class="board__cell">
-                <div class="add_link" data-id="0">+</div>
+                <div class="add_link" data-id="0"><button class="button_link">+</button></div>
             </div>
             <div class="board__cell">
-                <div class="add_link" data-id="1">+</div>
+                <div class="add_link" data-id="1"><button class="button_link">+</button></div>
             </div>
             <div class="board__cell">
-                <div class="add_link" data-id="2">+</div>
-            </div>
-
-            <div class="board__cell">
-                <div class="add_link" data-id="3">+</div>
-            </div>
-            <div class="board__cell">
-                <div class="add_link" data-id="4">+</div>
-            </div>
-            <div class="board__cell">
-                <div class="add_link" data-id="5">+</div>
+                <div class="add_link" data-id="2"><button class="button_link">+</button></div>
             </div>
 
             <div class="board__cell">
-                <div class="add_link" data-id="6">+</div>
+                <div class="add_link" data-id="3"><button class="button_link">+</button></div>
             </div>
             <div class="board__cell">
-                <div class="add_link" data-id="7">+</div>
+                <div class="add_link" data-id="4"><button class="button_link">+</button></div>
             </div>
             <div class="board__cell">
-                <div class="add_link" data-id="8">+</div>
+                <div class="add_link" data-id="5"><button class="button_link">+</button></div>
+            </div>
+
+            <div class="board__cell">
+                <div class="add_link" data-id="6"><button class="button_link">+</button></div>
+            </div>
+            <div class="board__cell">
+                <div class="add_link" data-id="7"><button class="button_link">+</button></div>
+            </div>
+            <div class="board__cell">
+                <div class="add_link" data-id="8"><button class="button_link">+</button></div>
             </div>
         </div>
     </div>

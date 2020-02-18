@@ -16,7 +16,7 @@ function onResize() {
 
   allCells.each(function(index, cell) {
     $(cell).css({"height": cellHeight + 'px'});
-    $(cell).css({"margin": '0 10px 10px'});
+    $(cell).css({"margin": '0 10px 30px'});
   });
 }
 
