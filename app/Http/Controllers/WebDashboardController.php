@@ -43,6 +43,26 @@ class WebDashboardController extends Controller
 
     }
 
+    public function updateConfiguration(Request $request, $id, ButtonConfigurationRepository $buttonConfigurationRepository)
+    {
+        try {
+            $config = $buttonConfigurationRepository->update($request,$id);
+            return new ButtonConfigResource($config);
+        } catch (\Exception $exception) {
+            throw new \Exception("Failed to store configurations");
+        }
+    }
+
+    public function editForm($id)
+    {
+        $buttonConfigurations =  ButtonConfiguration::with('colors')->findOrFail($id);
+        $colors = ButtonColor::all();
+        $colorId = $buttonConfigurations->colors->id;
+        $colorName = $buttonConfigurations->colors->color;
+        $allColors = $colors->where('color', '!=', $colorName)->pluck('color', 'id');
+        return view('edit_form')->with(['buttonConfigurations' => $buttonConfigurations, 'allColors'=> $allColors, 'colorName' => $colorName, 'colorId'=> $colorId]);
+    }
+
     /**
      * Display form for adding configurations
      *

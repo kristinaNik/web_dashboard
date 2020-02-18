@@ -12,7 +12,9 @@
                     <div class="add_link">
                         <button class="button_link" data-id="{{$buttonConfiguration->id}}" style="background-color: {{$buttonConfiguration->colors->color}}">
                               <a href="{{ $buttonConfiguration->link }}" title="{{$buttonConfiguration->title}}">+</a>
+
                         </button>
+                        <a href="{{route('edit-configuration', $buttonConfiguration->id)}}" style="font-size: 10px">Edit</a>
                     </div>
 
                 </div>

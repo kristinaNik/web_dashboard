@@ -20,4 +20,16 @@ class ButtonConfigurationRepository implements ButtonConfigurationInterface
 
         return $buttonConfiguration;
     }
+
+    public function update($data,$id)
+    {
+        $buttonConfiguration = ButtonConfiguration::findOrFail($id);
+
+        $buttonConfiguration->title = $data->title;
+        $buttonConfiguration->link = $data->link;
+        $buttonConfiguration->color_id = $data->color;
+        $buttonConfiguration->save();
+
+        return $buttonConfiguration;
+    }
 }
