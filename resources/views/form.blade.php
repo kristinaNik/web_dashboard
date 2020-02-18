@@ -1,12 +1,13 @@
-<form>
+<form class="hide"  id="button_config">
+    <p class="text-success" id="success_message"></p>
     <h2>Shkolo</h2>
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="title" class="form-control" id="title">
+        <input type="title" name="title" class="form-control" id="title">
     </div>
     <div class="form-group">
         <label for="link">Link</label>
-        <input type="link" class="form-control" id="link">
+        <input type="link" name="link" class="form-control" id="link">
     </div>
     <div class="form-group">
 
@@ -17,7 +18,7 @@
 
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" id="add_configurations"  class="btn btn-primary">Submit</button>
 </form>
 
 <script src="{{asset('js/get_colors.js')}}"></script>

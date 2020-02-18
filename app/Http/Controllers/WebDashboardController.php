@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\ButtonColor;
+use App\Http\Repositories\ButtonConfigurationRepository;
 use \App\Http\Resources\ButtonColor as ButtonColorResource;
+use App\Http\Resources\ButtonConfig as ButtonConfigResource;
 use Illuminate\Http\Request;
 
 class WebDashboardController extends Controller
 {
 
 
-    public function addConfigurations(Request $request)
+    public function addConfigurations(Request $request, ButtonConfigurationRepository $buttonConfigurationRepository)
     {
+        try {
+            $config = $buttonConfigurationRepository->store($request);
+            return new ButtonConfigResource($config);
+        } catch (\Exception $exception) {
+            throw new \Exception("Failed to store configurations");
+        }
 
     }
 
@@ -21,6 +29,7 @@ class WebDashboardController extends Controller
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function getColors() {
+
         $buttonColors = ButtonColor::all();
 
         return ButtonColorResource::collection($buttonColors);

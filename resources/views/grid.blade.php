@@ -9,10 +9,10 @@
 
         <div class="board__container">
             <div class="board__cell">
-                <div class="add_link" data-id="0"><button class="button_link">+</button></div>
+                <div class="add_link" data-id="0"><button class="button_link"><a href="#"> + </a></button></div>
             </div>
             <div class="board__cell">
-                <div class="add_link" data-id="1"><button class="button_link">+</button></div>
+                <div class="add_link" data-id="1"><button class="button_link"><span class="plus_sign">+ </span></button></div>
             </div>
             <div class="board__cell">
                 <div class="add_link" data-id="2"><button class="button_link">+</button></div>
@@ -41,7 +41,7 @@
     </div>
 
 
-
+    <script src="{{asset('js/configuration.js')}}"></script>
 @endsection
 
 

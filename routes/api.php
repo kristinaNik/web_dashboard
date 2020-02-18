@@ -17,3 +17,4 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 Route::get('/colors', 'WebDashboardController@getColors');
+Route::post('/configurations', 'WebDashboardController@addConfigurations');
