@@ -17,7 +17,8 @@ class ButtonConfigurationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('link');
-            $table->string('color');
+            $table->unsignedBigInteger('color_id');
+            $table->foreign('color_id')->references('id')->on('button_colors');
             $table->timestamps();
         });
     }
