@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'WebDashboardController@index');
+Route::get('/add', 'WebDashboardController@addForm')->name('add-configuration');

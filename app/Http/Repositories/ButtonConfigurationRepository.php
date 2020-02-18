@@ -16,7 +16,6 @@ class ButtonConfigurationRepository implements ButtonConfigurationInterface
         $buttonConfiguration->title = $data->title;
         $buttonConfiguration->link = $data->link;
         $buttonConfiguration->color_id = $data->color;
-        $buttonConfiguration->button_id = $data->button_id;
         $buttonConfiguration->save();
 
         return $buttonConfiguration;

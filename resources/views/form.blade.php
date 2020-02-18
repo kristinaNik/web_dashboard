@@ -1,4 +1,6 @@
-<form class="hide"  id="button_config">
+@extends('layouts/master')
+@section('content')
+<form id="button_config">
     <p class="text-success" id="success_message"></p>
     <h2>Shkolo</h2>
     <div class="form-group">
@@ -22,3 +24,8 @@
 </form>
 
 <script src="{{asset('js/get_colors.js')}}"></script>
+<script src="{{asset('js/add_config.js')}}"></script>
+
+@endsection
+
+

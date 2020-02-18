@@ -17,7 +17,8 @@ class ButtonConfig extends JsonResource
         return [
            'id' => $this->id,
             'title' => $this->title,
-            'link' => $this->link
+            'link' => $this->link,
+            'color' => $this->color_id
         ];
     }
 }

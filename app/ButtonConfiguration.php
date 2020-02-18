@@ -16,6 +16,11 @@ class ButtonConfiguration extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'link', 'color_id', 'button_id'
+        'title', 'link', 'color_id'
     ];
+
+    public function colors()
+    {
+        return $this->hasOne('App\ButtonColor', 'id', 'color_id');
+    }
 }
