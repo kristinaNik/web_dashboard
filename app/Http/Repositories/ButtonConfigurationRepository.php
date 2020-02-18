@@ -32,4 +32,12 @@ class ButtonConfigurationRepository implements ButtonConfigurationInterface
 
         return $buttonConfiguration;
     }
+
+    public function destroy($id)
+    {
+        $buttonConfiguration = ButtonConfiguration::findOrFail($id);
+        $buttonConfiguration->delete();
+
+        return $buttonConfiguration;
+    }
 }

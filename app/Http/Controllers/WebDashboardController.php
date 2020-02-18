@@ -49,7 +49,17 @@ class WebDashboardController extends Controller
             $config = $buttonConfigurationRepository->update($request,$id);
             return new ButtonConfigResource($config);
         } catch (\Exception $exception) {
-            throw new \Exception("Failed to store configurations");
+            throw new \Exception("Failed to update configurations");
+        }
+    }
+
+    public function deleteConfiguration(Request $request, $id,  ButtonConfigurationRepository $buttonConfigurationRepository)
+    {
+        try {
+            $config = $buttonConfigurationRepository->destroy($id);
+            return response()->json(['success' => ['message' => "link deleted successfully", 'config' => $config]]);
+        } catch (\Exception $exception) {
+            throw new \Exception("Failed to delete configurations");
         }
     }
 

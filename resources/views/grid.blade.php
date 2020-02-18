@@ -14,7 +14,8 @@
                               <a href="{{ $buttonConfiguration->link }}" title="{{$buttonConfiguration->title}}">+</a>
 
                         </button>
-                        <a href="{{route('edit-configuration', $buttonConfiguration->id)}}" style="font-size: 10px">Edit</a>
+                        <a href="{{route('edit-configuration', $buttonConfiguration->id)}}" style="font-size: 12px">Edit</a>
+                        <a href="{{route('delete-configuration', $buttonConfiguration->id)}}" style="font-size: 12px">Delete</a>
                     </div>
 
                 </div>
