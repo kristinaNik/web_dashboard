@@ -10,7 +10,7 @@
         <div class="board__container">
             @for($i = 0; $i<9; $i++)
                 <div class="board__cell">
-                     <div class="add_link" data-id="{{$i}}"><button class="button_link"><span class="plus_sign">+ </span></button></div>
+                     <div class="add_link"><button class="button_link" data-id="{{$i}}" ><span class="plus_sign">+ </span></button></div>
                  </div>
             @endfor
         </div>

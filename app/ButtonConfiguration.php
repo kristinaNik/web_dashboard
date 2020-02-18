@@ -16,6 +16,6 @@ class ButtonConfiguration extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'link', 'color_id'
+        'title', 'link', 'color_id', 'button_id'
     ];
 }

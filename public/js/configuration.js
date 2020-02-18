@@ -28,15 +28,16 @@ $(document).ready(function () {
                 var color = elementColor.value;
                 var colorText = elementColor.text;
                 var title = $("input[name=title]").val();
-
                 var link = $("input[name=link]").val();
+                var button_id = $(button).attr("data-id");
                 $.ajax({
                     type: 'POST',
                     url: "api/configurations",
                     data: {
                         title: title,
                         link: link,
-                        color: color
+                        color: color,
+                        button_id: button_id
                     },
                     success: function (data) {
                         $('#success_message').append("Successfully added a link");
