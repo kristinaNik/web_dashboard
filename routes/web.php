@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('grid');
 });
+
+Route::get('/', 'WebDashboardController@index');

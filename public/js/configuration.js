@@ -4,24 +4,29 @@ $(document).ready(function () {
     // var cellToAddToken = $(`[data-id='${currentCell}']`);
 
     $('.button_link').click(function(e) {
-        if($(e.target).closest('a').length){
-            alert('You clicked a link');
-        } else {
-            var button = $(this);
-            add_config(button);
+        // if($(e.target).closest('a').length){
+        //     alert('You clicked a link');
+        // }
 
-        }
+        $('#button_config').removeClass('hide');
+        var button = $(this);
+        add_config(button);
+
+
+
+
 
     });
 
     function add_config(button) {
 
-        $('#button_config').removeClass('hide');
+
         $("#add_configurations").on('click', function(e) {
             e.preventDefault();
 
             $("#color option:selected").each(function (index, elementColor) {
                 var color = elementColor.value;
+                var colorText = elementColor.text;
                 var title = $("input[name=title]").val();
 
                 var link = $("input[name=link]").val();
@@ -34,16 +39,18 @@ $(document).ready(function () {
                         color: color
                     },
                     success: function (data) {
-                        $(button.find('.plus_sign')).html('<a href="' + link + '" > + </a>')
                         $('#success_message').append("Successfully added a link");
-                        // $( location ).attr("href", "/");
+                        $(button.find('.plus_sign')).html('<a href="' + link + '" > + </a>')
+                        $(button).css({"background-color" : colorText});
                     },
                     error: function (data, err) {
                         alert("error in adding link.");
                     },
                 });
             })
+
         });
+
     }
 
 });
