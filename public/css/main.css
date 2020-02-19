@@ -24,12 +24,12 @@
 }
 
 .board__cell {
-    width: calc(85% / 3);
+    width: calc(90% / 3);
     display: inline-block;
     font-size: 40px;
     text-align: center;
     border: 2px solid #000;
-    padding: 0 1px 0;
+    padding: 8px;
     vertical-align: top;
     font-family: "Permanent Marker";
 }
@@ -49,10 +49,11 @@
 @media only screen and (max-width: 991px) {
     .board__cell {
         font-size: 16px;
-        padding: 5px;
-        margin: 0px 2px 30px;
+        width: calc(87% / 3);
     }
-
+    .config_links {
+        font-size: 13px;
+    }
     .button_link {
         border-radius: 50%;
         padding: 0px 0px;
