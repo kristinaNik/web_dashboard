@@ -16,7 +16,6 @@ function onResize() {
 
   allCells.each(function(index, cell) {
     $(cell).css({"height": cellHeight + 'px'});
-    // $(cell).css({"margin": '0 10px 30px'});
   });
 }
 
@@ -26,20 +25,20 @@ function buildBoard() {
   resetContainer.removeClass('reset--hidden');
 
   onResize();
-  addCellClickListener();
+
 }
 
 
 /**
   * Listner за кликане на клетка в таблата
   */
-function addCellClickListener() {
-  const cells = $('.board__cell');
-  cells.each(function(index, cell) {
-  	$(cell).on("click", function(event){
-  		event.preventDefault();
-  	});
-
-  });
-}
+// function addCellClickListener() {
+//   const cells = $('.board__cell');
+//   cells.each(function(index, cell) {
+//   	$(cell).on("click", function(event){
+//   		event.preventDefault();
+//   	});
+//
+//   });
+// }
 

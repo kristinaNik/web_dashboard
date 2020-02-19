@@ -5,7 +5,9 @@
 @section('content')
 
     <div class="board__main hide-container">
-        <div class="board___turn"></div>
+        <div class="board___name">
+            <h2>Shokolo</h2>
+        </div>
         <div class="board__container">
             @foreach($buttonConfigurations as $buttonConfiguration)
                 <div class="board__cell">
