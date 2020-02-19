@@ -8,7 +8,7 @@
         <div class="board___name">
             <h2>Shokolo</h2>
         </div>
-        <div class="board__container">
+        <div class="col-md-12">
             @foreach($buttonConfigurations as $buttonConfiguration)
                 <div class="board__cell">
                     <div class="add_link">
@@ -31,12 +31,14 @@
                         <button class="button_link" data-id="{{$i}}" >
                             <a href="{{route('add-configuration')}}">+</a>
                         </button>
+                        <div>
+
+                        </div>
                     </div>
                 </div>
                @endfor
         </div>
     </div>
-    <script src="{{asset('js/build_grid.js')}}"></script>
 @endsection
 
 
