@@ -22,6 +22,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     $('#success_message').append("Successfully added a link");
+                    window.location.href = '/';
                 },
                 error: function (data, err) {
                     alert("error in adding link.");

@@ -21,6 +21,7 @@
         </select>
     </div>
     <button type="submit" id="add_configurations"  class="btn btn-primary">Submit</button>
+    <a href="{{route('dashboard')}}" class="btn btn-primary">Go to main dashboard</a>
 </form>
 
 <script src="{{asset('js/get_colors.js')}}"></script>
