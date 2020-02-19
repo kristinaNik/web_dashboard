@@ -13,7 +13,7 @@
                 <div class="board__cell">
                     <div class="add_link">
                         <button class="button_link" data-id="{{$buttonConfiguration->id}}" style="background-color: {{$buttonConfiguration->colors->color}}">
-                              <a href="{{ $buttonConfiguration->link }}" title="{{$buttonConfiguration->title}}">+</a>
+                              <a href="{{ $buttonConfiguration->link }}" title="{{$buttonConfiguration->title}}" style="color: black; font-weight: bold">+</a>
 
                         </button>
                         <div>
@@ -26,10 +26,10 @@
                 </div>
                 @endforeach
                @for($i = 0; $i<9 - count($buttonConfigurations) ; $i++)
-                <div class="board__cell">
+                <div class="board__cell" style="height: 160px;">
                     <div class="add_link">
                         <button class="button_link" data-id="{{$i}}" >
-                            <a href="{{route('add-configuration')}}">+</a>
+                            <a href="{{route('add-configuration')}}" style="color: black; font-weight: bold">+</a>
                         </button>
                         <div>
 

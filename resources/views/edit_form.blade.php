@@ -18,11 +18,11 @@
 
                 <label for="color">Color</label>
                 <select class="form-control" id="color">
-                    <option value="{{$colorId}}" selected="selected">{{$colorName}}</option>
+                    <option value="{{$colorId}}" selected="selected" style="color: {{$buttonConfigurations->colors->color}}"> {{$colorName}}</option>
 
                     @foreach ($allColors as  $key => $color)
 
-                        <option value="{{$key}}"> {{ $color }}</option>
+                        <option value="{{$key}}" style="color: {{$color}}"> {{ $color }}</option>
                     @endforeach
 
                 </select>

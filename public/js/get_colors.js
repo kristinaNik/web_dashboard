@@ -10,7 +10,7 @@ $(document).ready(function () {
                 $.each(item, function (j, color_data) {
                     dataNum = item.length;
                     if (counter <= dataNum) {
-                        optionHTML += '<option value="' + color_data.id + '">' + color_data.color + '</option>';
+                        optionHTML += '<option value="' + color_data.id + '" style="color: '+color_data.color +'">' + color_data.color + '</option>';
                     }
                     counter++;
                 });
