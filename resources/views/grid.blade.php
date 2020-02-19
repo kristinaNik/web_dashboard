@@ -6,7 +6,7 @@
 
     <div class="board__main hide-container">
         <div class="board___name">
-            <h2>Shokolo</h2>
+            <h2 class="header_name"><span class="dashboard_name">SHKOLO</span></h2>
         </div>
         <div class="col-md-12">
             @foreach($buttonConfigurations as $buttonConfiguration)
