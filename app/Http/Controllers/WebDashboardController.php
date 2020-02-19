@@ -57,7 +57,7 @@ class WebDashboardController extends Controller
     {
         try {
             $config = $buttonConfigurationRepository->destroy($id);
-            return response()->json(['success' => ['message' => "link deleted successfully", 'config' => $config]]);
+            return redirect()->route('dashboard');
         } catch (\Exception $exception) {
             throw new \Exception("Failed to delete configurations");
         }

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('grid');
 });
 
-Route::get('/', 'WebDashboardController@index');
+Route::get('/', 'WebDashboardController@index')->name('dashboard');
 Route::get('/add', 'WebDashboardController@addForm')->name('add-configuration');
 Route::get('/{id}', 'WebDashboardController@editForm')->name('edit-configuration');
 Route::get('delete/{id}', 'WebDashboardController@deleteConfiguration')->name('delete-configuration');
