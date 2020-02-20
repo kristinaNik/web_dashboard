@@ -25,7 +25,7 @@ $(document).ready(function () {
                     window.location.href = '/';
                 },
                 error: function (data, err) {
-                    alert("error in adding link.");
+                    $('#danger_message').append("Failed to store configurations");
                 },
             });
         })

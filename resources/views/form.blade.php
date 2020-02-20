@@ -3,6 +3,7 @@
     <div class="col-md-12">
         <form id="button_config">
             <p class="text-success" id="success_message"></p>
+            <p class="text-danger" id="danger_message"></p>
             <div class="board___name">
                 <h2 class="header_name"><span class="dashboard_name">SHKOLO</span></h2>
             </div>

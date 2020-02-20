@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\ButtonColor;
 use App\ButtonConfiguration;
+use App\Http\Repositories\ButtonColorRepository;
 use App\Http\Repositories\ButtonConfigurationRepository;
 use \App\Http\Resources\ButtonColor as ButtonColorResource;
 use App\Http\Resources\ButtonConfig as ButtonConfigResource;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class WebDashboardController extends Controller
@@ -15,13 +17,18 @@ class WebDashboardController extends Controller
     /**
      * Display dashboard
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
     public function index()
     {
-        $buttonConfigurations = ButtonConfiguration::with('colors')->get();
+        try {
+            $buttonConfigurations = ButtonConfiguration::with('colors')->get();
 
-        return view('grid')->with('buttonConfigurations',$buttonConfigurations);
+            return view('grid')->with('buttonConfigurations',$buttonConfigurations);
+        } catch (\Exception $exception) {
+            return response()->json(['message' => "Couldn't load button configurations"], 500);
+        }
+
     }
 
     /**
@@ -38,39 +45,67 @@ class WebDashboardController extends Controller
             $config = $buttonConfigurationRepository->store($request);
             return new ButtonConfigResource($config);
         } catch (\Exception $exception) {
-            throw new \Exception("Failed to store configurations");
+            return response()->json(['message' => 'Failed to store configurations'], 500);
         }
 
     }
 
+    /**
+     * Update button configuration
+     *
+     * @param Request $request
+     * @param $id
+     * @param ButtonConfigurationRepository $buttonConfigurationRepository
+     * @return ButtonConfigResource|\Illuminate\Http\JsonResponse
+     */
     public function update(Request $request, $id, ButtonConfigurationRepository $buttonConfigurationRepository)
     {
         try {
             $config = $buttonConfigurationRepository->update($request,$id);
             return new ButtonConfigResource($config);
         } catch (\Exception $exception) {
-            throw new \Exception("Failed to update configurations");
+            return response()->json(['message' => 'Failed to update configurations'], 500);
         }
     }
 
+    /**
+     * Delete button configuration
+     *
+     * @param Request $request
+     * @param $id
+     * @param ButtonConfigurationRepository $buttonConfigurationRepository
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function deleteConfiguration(Request $request, $id,  ButtonConfigurationRepository $buttonConfigurationRepository)
     {
         try {
-            $config = $buttonConfigurationRepository->destroy($id);
+            $buttonConfigurationRepository->destroy($id);
             return redirect()->route('dashboard');
         } catch (\Exception $exception) {
-            throw new \Exception("Failed to delete configurations");
+            return response()->json(['message' => 'Failed to delete configurations'], 500);
         }
     }
 
-    public function editForm($id)
+
+    /**
+     * Edit button configuration form
+     *
+     * @param $id
+     * @param ButtonColorRepository $buttonColorRepository
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function editForm($id, ButtonColorRepository $buttonColorRepository)
     {
-        $buttonConfigurations =  ButtonConfiguration::with('colors')->findOrFail($id);
-        $colors = ButtonColor::all();
-        $colorId = $buttonConfigurations->colors->id;
-        $colorName = $buttonConfigurations->colors->color;
-        $allColors = $colors->where('color', '!=', $colorName)->pluck('color', 'id');
-        return view('edit_form')->with(['buttonConfigurations' => $buttonConfigurations, 'allColors'=> $allColors, 'colorName' => $colorName, 'colorId'=> $colorId]);
+        try {
+            $buttonConfigurations =  ButtonConfiguration::with('colors')->findOrFail($id);;
+            $colorObject = $buttonColorRepository->getColorDetails($buttonConfigurations);
+
+            return view('edit_form')->with(['buttonConfigurations' => $buttonConfigurations, 'allColors'=> $colorObject->allColors, 'colorName' => $colorObject->colorName, 'colorId'=>$colorObject->colorId]);
+        } catch (ModelNotFoundException $exception) {
+            throw new ModelNotFoundException();
+        }
+
     }
 
     /**
@@ -84,7 +119,7 @@ class WebDashboardController extends Controller
     }
 
     /**
-     * Get Colors
+     * Get colors api
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */

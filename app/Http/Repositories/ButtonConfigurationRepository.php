@@ -10,6 +10,12 @@ use App\Http\Interfaces\ButtonConfigurationInterface;
 class ButtonConfigurationRepository implements ButtonConfigurationInterface
 {
 
+    /**
+     * Store configurations
+     *
+     * @param $data
+     * @return ButtonConfiguration
+     */
     public function store($data)
     {
         $buttonConfiguration = new ButtonConfiguration();
@@ -21,6 +27,13 @@ class ButtonConfigurationRepository implements ButtonConfigurationInterface
         return $buttonConfiguration;
     }
 
+    /**
+     * Update configurations
+     *
+     * @param $data
+     * @param $id
+     * @return mixed
+     */
     public function update($data,$id)
     {
         $buttonConfiguration = ButtonConfiguration::findOrFail($id);
@@ -33,6 +46,12 @@ class ButtonConfigurationRepository implements ButtonConfigurationInterface
         return $buttonConfiguration;
     }
 
+    /**
+     * Delete configurations
+     *
+     * @param $id
+     * @return mixed
+     */
     public function destroy($id)
     {
         $buttonConfiguration = ButtonConfiguration::findOrFail($id);

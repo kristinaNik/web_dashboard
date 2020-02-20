@@ -25,7 +25,7 @@ $(document).ready(function () {
                     $('#success_message').append("Successfully edited a link");
                 },
                 error: function (data, err) {
-                    alert("error in adding link.");
+                    $('#danger_message').append("Failed to update the configurations");
                 },
             });
         })
