@@ -1,5 +1,6 @@
 <?php
 
+use App\ButtonColor;
 use Illuminate\Database\Seeder;
 
 class ButtonColorTableSeeder extends Seeder
@@ -11,7 +12,8 @@ class ButtonColorTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\ButtonColor::class, 4)->create();
+        ButtonColor::factory()->count(4)->create();
+
 
 //        factory(App\Post::class, 200)->create()->each(function($post){
 //            $post->save();

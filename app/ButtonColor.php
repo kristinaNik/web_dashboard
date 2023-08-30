@@ -4,10 +4,13 @@
 namespace App;
 
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ButtonColor extends Model
 {
+    use HasFactory;
+
     protected $table = 'button_colors';
 
     /**

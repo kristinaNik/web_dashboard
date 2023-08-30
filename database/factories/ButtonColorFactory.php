@@ -1,25 +1,28 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\User;
-use Faker\Generator as Faker;
-use Illuminate\Support\Str;
+use App\ButtonColor;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\ButtonColor>
+ */
+class ButtonColorFactory extends Factory
+{
 
-$factory->define(\App\ButtonColor::class, function (Faker $faker) {
-    $colors = ['red', 'blue', 'green', 'yellow'];
-    return [
-        'color' => $faker->unique()->randomElement($colors),
-    ];
-});
+    protected $model = ButtonColor::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $colors = ['red', 'blue', 'green', 'yellow'];
+        return [
+            'color' => $this->faker->unique()->randomElement($colors)
+        ];
+    }
+}
